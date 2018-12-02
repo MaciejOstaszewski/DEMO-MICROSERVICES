@@ -1,6 +1,5 @@
 package com.example.userservice.resource;
 
-import com.example.userservice.domain.User;
 import com.example.userservice.dto.UserDTO;
 import com.example.userservice.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Optional;
 
 @Slf4j
 @RestController
@@ -36,22 +34,5 @@ public class UserResource {
                 .map(userDTO -> new ResponseEntity<>(userDTO, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
-
-//    @GetMapping
-//    public ResponseEntity<List<User>> getAll() {
-//        log.debug("Rest request for all users");
-//        return ResponseEntity.ok(UserService.getInstance().getAll());
-//    }
-//
-//    @GetMapping("/{id}")
-//    public ResponseEntity<User> getOne(@PathVariable Long id) {
-//        log.debug("Rest request for user by id [{}]", id);
-//        Optional<User> byId = UserService.getInstance().findById(id);
-//        if(byId.isPresent()) {
-//            return ResponseEntity.ok(byId.get());
-//        }
-//        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-//    }
-
 
 }
